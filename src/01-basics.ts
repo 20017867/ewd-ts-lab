@@ -1,12 +1,21 @@
-// However, we should make the code more type-safe. At the top of the file, add an interface declaration:
+// 1. Appropriate data type (interface) for the friend objects definition
 interface Friend {
   name: string;
   phone: string;
   age: number
 }
 
-// To complete the data typing for this script, add the following interface declaration:
+// 2. Appropriate data type (interface) for the colleague objects definition
+interface Colleague {
+  name: string;
+  department: string;
+  contact: {
+    email: string;
+    extension: number
+  };
+}
 
+// 3. Appropriate data type (interface) for the colleague history objects definition
 interface ColleagueHistory {
   current: Colleague[],
   former: Colleague[]
@@ -30,7 +39,7 @@ const friend1: Friend = {
   console.log(friends[1]);
   
   //   -------------------
-  const colleague1 = {
+  const colleague1: Colleague = {
     name: "Ralph Graham",
     department: "Engineering",
     contact: {
@@ -39,7 +48,7 @@ const friend1: Friend = {
     },
   };
   
-  const colleague2 = {
+  const colleague2: Colleague = {
     name: "Patti Burke",
     department: "Finance",
     contact: {
@@ -48,7 +57,7 @@ const friend1: Friend = {
     },
   };
   
-  const colleague3 = {
+  const colleague3: Colleague = {
     name: "Dean Sullivan",
     department: "HR",
     contact: {
@@ -56,11 +65,9 @@ const friend1: Friend = {
       extension: 125,
     },
   };
-
-// And update the colleagues data structure with this type:
- export const colleagues : ColleagueHistory = {
-  current: [colleague1, colleague2, colleague3],
-  former: [],
-};
+  export const colleagues : ColleagueHistory = {
+    current: [colleague1, colleague2, colleague3],
+    former: [],
+  };
   
   console.log(colleagues.current[0]);
