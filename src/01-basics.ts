@@ -1,7 +1,7 @@
 interface Friend {
-    name: string;
-    phone: string;
-    age: number
+  name: string;
+  phone: string;
+  age: number
 }
 // (Optional) Change the names below to your friends.
 
