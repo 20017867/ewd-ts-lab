@@ -1,4 +1,4 @@
-import {Friend, Colleague, ColleagueHistory } from './myTypes'
+import {Friend, Colleague, ColleagueHistory, EmailContact} from './myTypes'
 
 // (Optional) Change the names below to your friends.
 
