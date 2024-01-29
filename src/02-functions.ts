@@ -1,5 +1,5 @@
-import {Friend, Colleague } from './myTypes'
-import {friends, colleagues } from "./01-basics";
+import {Friend, Colleague, EmailContact,} from './myTypes'
+import {friends, colleagues, } from "./01-basics";
 
 function older(f: Friend) : string {
     f.age += 1
@@ -48,3 +48,27 @@ function addColleague(cs: Colleague[], name: string, department: string, email: 
   
   // Log the added colleague
   console.log(colleagues.current.filter((c) => c.name === "Sheild O Connell"));
+
+
+  function sortColleagues(
+    colleagues: Colleague[],
+    sorter: (c1: Colleague, c2: Colleague) => number
+  ): EmailContact[] {
+    const sorted = colleagues.sort(sorter); // Colleague[] inferred
+    const result: EmailContact[] = sorted.map((ce) => ({ name: ce.name, email: ce.contact.email }));
+    return result 
+  }
+  
+  console.log(sortColleagues(colleagues.current, (a, b) => a.contact.extension - b.contact.extension));
+  console.log(sortColleagues(colleagues.current, (a, b) => a.name.length - b.name.length));
+
+
+  // Function to find friends based on a given criterion
+function findFriends(friends: Friend[], criterion: (friend: Friend) => boolean): string[] {
+    const result: string[] = friends.filter(criterion).map((friend) => friend.name);
+    return result;
+  }
+  
+  // Test finding friends
+  console.log(findFriends(friends, (friend) => friend.name.startsWith('Pa')));
+  console.log(findFriends(friends, (friend) => friend.age < 35));
