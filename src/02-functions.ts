@@ -50,6 +50,7 @@ function addColleague(cs: Colleague[], name: string, department: string, email: 
   console.log(colleagues.current.filter((c) => c.name === "Sheild O Connell"));
 
 
+  //Higher Order functions
   function sortColleagues(
     colleagues: Colleague[],
     sorter: (c1: Colleague, c2: Colleague) => number
